@@ -2,19 +2,7 @@ const app = require("express")();
 const puppeteer = require("puppeteer");
 
 require("dotenv").config();
-  const browser = await puppeteer.launch({
-    args: [
-      "--disable-setuid-sandbox",
-      "--no-sandbox",
-      "--single-process",
-      "--no-zygote",
-    ],
-    executablePath:
-      process.env.NODE_ENV === "production"
-        ? process.env.PUPPETEER_EXECUTABLE_PATH
-        : puppeteer.executablePath(),
-    
-  });
+  
 console.log(process.env.NODE_ENV,"node_env")
 console.log(process.env.PUPPETEER_EXECUTABLE_PATH,"node_exec")
 app.get("/api", async (req, res) => {
@@ -41,7 +29,19 @@ app.get("/api", async (req, res) => {
 */
   try {
   //  let browser = await puppeteer.launch(options);
-
+const browser = await puppeteer.launch({
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+    ],
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
+    
+  });
     let page = await browser.newPage();
     await page.goto("https://watchoutmovies.vercel.app/");
     res.send(await page.title());
