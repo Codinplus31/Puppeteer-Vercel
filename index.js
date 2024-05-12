@@ -1,17 +1,22 @@
 const app = require("express")();
+const puppeteer = require("puppeteer");
 
-let chrome = {};
-let puppeteer;
-
-if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
-  chrome = require("chrome-aws-lambda");
-  puppeteer = require("puppeteer-core");
-  console.log("core working")
-} else {
-  puppeteer = require("puppeteer");
-console.log("normal working")
-}
-
+require("dotenv").config();
+  const browser = await puppeteer.launch({
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+    ],
+    executablePath:
+      process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : puppeteer.executablePath(),
+    
+  });
+console.log(process.env.NODE_ENV,"node_env")
+console.log(process.env.PUPPETEER_EXECUTABLE_PATH,"node_exec")
 app.get("/api", async (req, res) => {
   let options = {};
 
