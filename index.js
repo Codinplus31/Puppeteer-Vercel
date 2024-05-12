@@ -6,8 +6,10 @@ let puppeteer;
 if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   chrome = require("chrome-aws-lambda");
   puppeteer = require("puppeteer-core");
+  console.log("core working")
 } else {
   puppeteer = require("puppeteer");
+console.log("normal working")
 }
 
 app.get("/api", async (req, res) => {
@@ -21,6 +23,7 @@ app.get("/api", async (req, res) => {
       headless: true,
       ignoreHTTPSErrors: true,
     };
+    console.log("core working")
   }
 
   try {
