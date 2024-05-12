@@ -27,7 +27,7 @@ app.get("/api", async (req, res) => {
     let browser = await puppeteer.launch(options);
 
     let page = await browser.newPage();
-    await page.goto("https://watchoutmovies.vercel.app");
+    await page.goto("https://watchoutmovies.vercel.app/");
     res.send(await page.title());
   } catch (err) {
     console.error(err);
@@ -35,7 +35,7 @@ app.get("/api", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server started");
 });
 
