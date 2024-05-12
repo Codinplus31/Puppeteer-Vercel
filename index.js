@@ -21,6 +21,8 @@ app.get("/api", async (req, res) => {
       defaultViewport: chrome.defaultViewport,
       executablePath: await chrome.executablePath,
       headless: true,
+      ignoreDefaultArgs: ['--disable-extensions'],
+      
       ignoreHTTPSErrors: true,
     };
     console.log("core working")
