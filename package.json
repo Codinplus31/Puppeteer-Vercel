@@ -13,9 +13,9 @@
     "node": "^20"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^6",
+    "chrome-aws-lambda": "^10",
     "express": "^4.18.1",
-    "puppeteer-core": "^6"
+    "puppeteer-core": "^10"
   },
   "devDependencies": {
     "puppeteer": "^16.2.0"
