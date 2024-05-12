@@ -20,7 +20,7 @@ console.log(process.env.PUPPETEER_EXECUTABLE_PATH,"node_exec")
 app.get("/api", async (req, res) => {
   let options = {};
 
-  if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+ /* if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
     options = {
      // args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
      args: [
@@ -38,9 +38,9 @@ app.get("/api", async (req, res) => {
     };
     console.log("core working")
   }
-
+*/
   try {
-    let browser = await puppeteer.launch(options);
+  //  let browser = await puppeteer.launch(options);
 
     let page = await browser.newPage();
     await page.goto("https://watchoutmovies.vercel.app/");
