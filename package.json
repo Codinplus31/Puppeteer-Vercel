@@ -4,24 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-"start": "node index"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "^20"
-  },
   "dependencies": {
-    "chrome-aws-lambda": "^10",
-    "express": "^4.18.1",
-    "puppeteer-core": "^10",
-    "puppeteer":"^19.7.2",
-    "dotenv":"^16.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "@ngrok/ngrok": "^1.2.0",
-  },
-  "devDependencies": {
-    
+
+
   }
-}
+  }
